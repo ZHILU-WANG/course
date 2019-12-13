@@ -20,13 +20,13 @@ Rails.application.routes.draw do
 
   resources :courses do
     member do
-      get :select   #courseControll中的方法
+      get :select
       get :quit
       get :open
       get :close
       get :searchcourse
-      get :coursedetails #显示课程详细信息
-      get :credit #显示当前学分
+      get :coursedetails
+      get :credit
     end
 
     collection do
@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   resources :users #用户路由
 
   #Sessions资源使用具名路由 处理 GET POST DELETE请求  添加一个资源，获得会话标准REST动作
+  #
+  #
   get 'grades/degree' => 'grades#degree' #学位
   get 'grades/change_to_degree' =>'grades#change_to_degree'
   get 'grades/change_to_notdegree' =>'grades#change_to_notdegree'
