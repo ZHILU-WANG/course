@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     collection do
       get :list
       get :coursetable #我的课表
+
     end
   end
 

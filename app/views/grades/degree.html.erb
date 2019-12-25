@@ -31,17 +31,9 @@
                   <td><%= grade.course.teacher.name %></td>
                   <td><%= grade.course.course_type %></td>
                   <td><%= grade.course.course_time %></td>
-                  <%if  grade.degree == true%>
-                  <td>是</td>
-                  <%else%>
-                  <td>否</td>
-                  <%end%>
-                  <%@grade=grade%>
-                      <% if grade.degree? %>
-                          <td><%= link_to "设为非学位课", grades_change_to_notdegree_path(id:@grade.id), class: 'btn btn-xs btn-success' %></td>
-                      <% else %>
-                          <td><%= link_to "设为学位课", grades_change_to_degree_path(id:@grade.id), class: 'btn btn-xs btn-success' %></td>
-                      <% end %>
+                  <td>
+                    <%= check_box_tag 'degree', grade.id, grade.degree, data: {'grade-id' => grade.id}, class: 'is-degree-input' %>
+                  </td>
                 </tr>
             <% end %>
             </tbody>

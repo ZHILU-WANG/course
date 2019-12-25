@@ -68,9 +68,6 @@ class CoursesController < ApplicationController
       end
     end
     @course=tmp
-
-
-
   end
 
   #----------学生选择课程-----------
@@ -135,6 +132,8 @@ class CoursesController < ApplicationController
   end
 
   #-----新增------显示课表-----------------
+
+
   def coursetable
     @course=current_user.courses if student_logged_in?
   end

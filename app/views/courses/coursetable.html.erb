@@ -15,7 +15,53 @@
         </div>
 
         <div class="panel-body">
-          <table class="table table-responsive table-condensed table-hover">
+<!--          <table align="left" style="margin-left:-15px;bordercolor:black;align:center;width: 30px;margin-top:35px; border:0;" class="table table-responsive table-condensed table-hover">-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">8:30-09:20</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">09:20-10:10</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">10:30-11:20</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">11:20-12:10</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 45px;border-color: white;"></td>-->
+<!--            </tr>-->
+
+
+<!--            <tr>-->
+<!--              <td style="height: 45px;border-color: white;">13:30-14:20</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 53px;border-color: white;">14:20-15:10</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">15:30-16:20</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">16:20-17:10</td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--              <td style="height: 24px;border-color: white;"></td>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">19:00-19:50</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">19:50-20:40</td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--              <td style="height: 40px;border-color: white;">20:50-21:40</td>-->
+<!--            </tr>-->
+<!--          </table>-->
+
+          <table  class="table table-responsive table-condensed table-hover">
             <thead>
             <tr style="font-size:16px;" >
               <th></th>
@@ -30,7 +76,6 @@
             </thead>
 
             <tbody style="font-size:14px;" >
-
             <% tmp = 1 %>
             <% while tmp < 13 do %>
               <% if tmp == 5 %>
@@ -52,7 +97,30 @@
               <% end %>
 
               <tr>
-                <td><%= tmp %></td>
+
+                <% if tmp ==1 %>
+                  <td>8:30-09:20</td>
+                <% elsif tmp ==2 %>
+                  <td>09:20-10:10</td>
+                <% elsif tmp == 3 %>
+                  <td>10:30-11:20</td>
+                <% elsif tmp ==4 %>
+                  <td>11:20-12:10</td>
+                <% elsif tmp == 5 %>
+                  <td>13:30-14:20</td>
+                <% elsif tmp ==6%>
+                  <td>14:20-15:10</td>
+                <% elsif tmp == 7 %>
+                  <td>15:30-16:20</td>
+                <% elsif tmp ==8 %>
+                  <td>16:20-17:10</td>
+                <% elsif tmp == 9 %>
+                  <td>19:00-19:50</td>
+                <% elsif tmp == 10 %>
+                  <td>19:50-20:40</td>
+                <% elsif tmp == 11%>
+                  <td>20:50-21:40</td>
+                <% end %>
                 <% tmp2 = ["周一","周二","周三","周四","周五","周六","周日"]%>
                 <% tmp3 = 0 %>
                 <% while tmp3 < 7 do %>
@@ -67,7 +135,7 @@
                       <% end %>
                       <% for i in a..b %>
                         <% if i == tmp %>
-                          <td ><%= course.name%></td>
+                          <td ><%= course.name%><br/><%=course.teacher.name%>&nbsp<%=course.class_room%><br/><%=course.course_week%></td>
                           <% tmp4 += 1 %>
                         <% end %>
                       <% end %>

@@ -16,3 +16,16 @@
 //= require bootstrap
 //= require_tree .
 
+
+$(document).on('turbolinks:load', function () {
+    $('.is-degree-input').on('change', function () {
+        var id = $(this).data('grade-id');
+        var url;
+        if ($(this).is(':checked')) {
+            url = '/grades/change_to_degree';
+        } else {
+            url = '/grades/change_to_notdegree';
+        }
+        location.href = url + '?id=' + id
+    })
+});

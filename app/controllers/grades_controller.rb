@@ -25,17 +25,7 @@ class GradesController < ApplicationController
   end
 
 
-  #**************学位课*********************
-  # def degree
-  #   if teacher_logged_in?
-  #     @course=Course.find_by_id(params[:course_id])
-  #     @grades=@course.grades
-  #   elsif student_logged_in?
-  #     @grades=current_user.grades
-  #   else
-  #     redirect_to root_path, flash: {:warning=>"请先登陆"}
-  #   end
-  # end
+
   def degree
     if student_logged_in?
       @grades=current_user.grades
@@ -46,14 +36,15 @@ class GradesController < ApplicationController
 
   def change_to_degree
     @grade=Grade.find_by_id(params[:id])
-    @grade.update_attributes(:degree=>true)
+    @grade.update(:degree=>true)
     redirect_to grades_degree_path, flash: {:success => "已经成功设置#{ @grade.course.name}为学位课！"}
   end
   def change_to_notdegree
     @grade=Grade.find_by_id(params[:id])
-    @grade.update_attributes(:degree=>false)
+    @grade.update(:degree=>false)
     redirect_to grades_degree_path, flash: {:success => "已经成功设置#{ @grade.course.name}为非学位课！"}
   end
+
 
 
 
